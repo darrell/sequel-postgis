@@ -16,10 +16,15 @@ module Sequel
         def postgis_extension_loaded?
           true
         end
+        def has_column?(col)
+          db[self.table_name].columns.include? col
+        end
         def _add_update_column
-          db.alter_table(self.table_name) do
-            add_column :updated_at, DateTime
-            add_index :updated_at
+          if !has_column?(:updated_at)
+            db.alter_table(self.table_name) do
+              add_column :updated_at, DateTime
+              add_index :updated_at
+            end
           end
         end
 
