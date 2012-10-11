@@ -4,5 +4,5 @@ Gem::Specification.new do |s|
   s.summary     = "PostGIS extensions to Sequel"
   s.authors     = ["Darrell Fuhriman"]
   s.email       = 'darrell@garnix.org'
-  s.files       = ["lib/example.rb"]
+  s.files       = Dir['lib/**']
 end
