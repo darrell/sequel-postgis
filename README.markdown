@@ -20,10 +20,10 @@ I do my testing in mainline 1.9.3 and PostGIS 2.0.x, and PostgreSQL 9.1.
 However, I have no reason to think that 1.8.7 and PostGIS 1.5 will not work.
 
 ### Gems
-sequel (duh)
-pg
-logger
-rspec (if you want to write tests)
+* sequel (duh)
+* pg
+* logger
+* rspec (if you want to write tests)
 
 ### Other
 PostGIS (duh)
