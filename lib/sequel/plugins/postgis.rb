@@ -17,11 +17,11 @@ module Sequel
           true
         end
         def has_column?(col)
-          db[self.table_name].columns.include? col
+          db[table_name].columns.include? col
         end
         def _add_update_column
           if !has_column?(:updated_at)
-            db.alter_table(self.table_name) do
+            db.alter_table(table_name) do
               add_column :updated_at, DateTime
               add_index :updated_at
             end

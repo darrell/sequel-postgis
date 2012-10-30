@@ -17,7 +17,7 @@ module Sequel
 
           # Does my table have a given trigger defined?
           def has_trigger?(name)
-            q=db.from(:pg_class).join(:pg_trigger, :tgrelid => :oid).where(:relname => self.table_name.to_s, :tgname => name.to_s)
+            q=db.from(:pg_class).join(:pg_trigger, :tgrelid => :oid).where(:relname => Sequel.split_symbol(self.table_name)[1], :tgname => name.to_s)
             q.first.nil? ? false : true
           end
 
