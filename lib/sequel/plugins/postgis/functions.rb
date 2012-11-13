@@ -41,7 +41,7 @@ module Sequel
                 RETURN NEW;
               END;
             }
-            self.db.create_function :update_timsestamp, func, :replace => true, :returns => 'trigger', :language => 'plpgsql'
+            self.db.create_function :update_timestamp, func, :replace => true, :returns => 'trigger', :language => 'plpgsql'
           end
         end
     end
