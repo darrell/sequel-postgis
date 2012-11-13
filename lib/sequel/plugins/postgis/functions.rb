@@ -2,10 +2,9 @@ module Sequel
   module Plugins
     module Postgis
       module ClassMethods
-        module Functions
           # checks to see if database function of the supplied name exists
           def has_function?(name)
-            self.db[:pg_proc].where(:proname => name).first.nil? ? false : true
+            self.db[:pg_proc].first(:proname => name.to_s).nil? ? false : true
           end
 
           # wrapper method for adding functions
@@ -29,7 +28,7 @@ module Sequel
           # create the update_timestamp function in the database
           # add :force => true to force overwriting an
           # existing function
-          def add_function_update_timestamp(opts)
+          def add_function_update_timestamp(opts={})
             if has_function?(:update_timestamp)
               # if we have it, overwrite it if force is set
               if !opts[:force] 
@@ -45,7 +44,6 @@ module Sequel
             self.db.create_function :update_timsestamp, func, :replace => true, :returns => 'trigger', :language => 'plpgsql'
           end
         end
-      end
     end
   end
 end

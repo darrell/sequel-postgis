@@ -26,7 +26,8 @@ module Sequel
               add_index :updated_at
             end
           end
-          db["update #{simple_table} set updated_at=now()"].update
+	  add_function_update_timestamp
+          db["update #{simple_table} set updated_at=now() where updated_at is null"].update
         end
 
         def add_update_column
