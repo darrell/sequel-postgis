@@ -16,9 +16,11 @@ module Sequel
         def postgis_extension_loaded?
           true
         end
+
         def has_column?(col)
           db[table_name].columns.include? col
         end
+        
         def _add_update_column
           if !has_column?(:updated_at)
             db.alter_table(self.table_name) do
@@ -26,7 +28,7 @@ module Sequel
               add_index :updated_at
             end
           end
-	  add_function_update_timestamp
+	        add_function_update_timestamp
           db["update #{simple_table} set updated_at=now() where updated_at is null"].update
         end
 
