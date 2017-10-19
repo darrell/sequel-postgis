@@ -6,5 +6,5 @@
 # MYSQL_URL = "mysql://#{MYSQL_USER}@localhost/sandbox"
 # MYSQL_SOCKET_FILE = '/tmp/mysql.sock'
 # ORACLE_DB = Sequel.connect('oracle://hr:hr@localhost/XE')
-POSTGRES_URL = 'postgres://postgres@localhost:5432/gis'
+# POSTGRES_URL = 'postgres://postgres@localhost:5432/gis'
 # SQLITE_URL = 'sqlite:/'
