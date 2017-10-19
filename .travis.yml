@@ -1,0 +1,15 @@
+language: ruby
+sudo: false
+rvm:
+  - 2.1.7
+cache: bundler
+script: bundle exec rspec
+
+env:
+  global:
+    # $GEMFURY_API_KEY (itstaff+readwrite@renewfinancial.com)
+    - secure: "dUSUC8JwIYLVIqNPSa1TE9dSD3I1TO9SiVrAmhYCkJf3lYGjy7QwjqBcWNcJ3ZXinZT+hvnmy3+YXU6PDGLk0K829fneh7i68Uw2c/dcEHZDJFcTLVJ1rDEh7DBLRBafimB/kL1PqwRpXGm5TnKBhsVsfPBNR6KCgFk9FquW/TZAxbkvaGHxUTsKL0VfdnC9GHy0/XyO289iZvrqSKlJOJ5st1HPGIYJph12vE3ejdVBn2rZ4fsGg6hnIZaiAeI6uf01pDREoqDGnwH9l24Crm23NmbuS8eStVT1aXZAmwisnvoLhvBGIDjTaJInjZeAZqWd6pUVH7r7zFiz9Dz4BOyoLJTRBTwDwARZ12E9zOBkcgJals1qCE/NpJ6WQeIZcdJwb8BdO/CyWPPFLAoKuNDLlRkLXohLnJqs7R0MFx56ba+FBZhc70UXqpi4Le9agNIxnEBKUrrjGZVy6Ie1NyKSbNEHBZlYrxV5vJITmVuXjiKgUKrU9uRAUbTZdC9rRQgnkJt7FPPhT1wcdCUmdKpi9C/bzymQtW5J3EUFBqRk0Vgv854qKG9vX3Sv5+oSaKLDTtLNh6xxyqdmhAkIv3b9yBKiHbOdbjPo0kwcD3xm1zXuM/JVDA+QystnOgTi2O02uCL3SwCT+0s6kH5xHI9pSqWxofeV33PeTdK/GFc="
+
+after_success:
+  - gem install -q renew_tools --source https://sXqaiTdHem9AuWU4o8oH@gem.fury.io/renewfinancial/
+  - renew gem release
